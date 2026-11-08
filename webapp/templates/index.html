@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Analyze an image{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Is this image real, or AI-generated?</h1>
+  <p class="lead">Upload a photo and VisionGuard's CNN returns a verdict with a confidence score.
+    Images are analysed in memory and never stored.</p>
+</section>
+
+<form class="card upload" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" id="form">
+  <label class="drop" id="drop">
+    <input type="file" name="image" id="file" accept=".jpg,.jpeg,.png,.webp,.bmp,.gif" required>
+    <img id="preview" alt="" hidden>
+    <span class="drop-text" id="dropText"><strong>Choose an image</strong> or drag it here<br>
+      <small>JPG, PNG, WEBP, BMP or GIF · up to {{ max_mb }} MB</small></span>
+  </label>
+  <button class="btn" type="submit" id="go">Analyze image</button>
+</form>
+
+<script>
+  const f = document.getElementById('file'), img = document.getElementById('preview'),
+        txt = document.getElementById('dropText'), drop = document.getElementById('drop'),
+        form = document.getElementById('form'), go = document.getElementById('go');
+  f.addEventListener('change', () => {
+    const file = f.files[0]; if (!file) return;
+    img.src = URL.createObjectURL(file); img.hidden = false;
+    txt.innerHTML = `<strong>${file.name}</strong><br><small>${(file.size/1024/1024).toFixed(2)} MB</small>`;
+  });
+  ['dragover','dragenter'].forEach(e => drop.addEventListener(e, ev => {ev.preventDefault(); drop.classList.add('over');}));
+  ['dragleave','drop'].forEach(e => drop.addEventListener(e, () => drop.classList.remove('over')));
+  drop.addEventListener('drop', ev => { ev.preventDefault(); f.files = ev.dataTransfer.files; f.dispatchEvent(new Event('change')); });
+  form.addEventListener('submit', () => { go.disabled = true; go.textContent = 'Analyzing…'; });
+</script>
+{% endblock %}

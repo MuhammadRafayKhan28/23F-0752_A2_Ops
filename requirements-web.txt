@@ -1,0 +1,10 @@
+# Serving environment (Flask web app + model API). CPU-only TensorFlow on purpose:
+# the CUDA build is ~2 GB larger and a single-image CNN forward pass is fast on CPU.
+flask>=3.0,<4
+gunicorn>=22
+sqlalchemy>=2.0,<2.1
+psycopg2-binary>=2.9
+pillow>=10.3
+numpy>=1.26,<2.1
+requests>=2.31
+tensorflow-cpu>=2.16,<2.18

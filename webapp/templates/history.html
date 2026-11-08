@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock %}
+{% block content %}
+<section class="hero small">
+  <h1>Prediction history</h1>
+  <p class="lead">Every request is stored in the database: what was decided, when, by which model and how confidently.</p>
+</section>
+{% if rows %}
+<div class="card table-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Time (UTC)</th><th>File</th><th>Verdict</th><th>Confidence</th><th>P(AI)</th>
+      <th>Model</th><th>Mode</th><th>Latency</th></tr></thead>
+    <tbody>
+    {% for r in rows %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td class="nowrap">{{ r.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td class="file">{{ r.filename }}</td>
+        <td><span class="pill {{ 'ai' if r.label == 'AI-generated' else 'real' }}">{{ r.label }}</span></td>
+        <td>{{ '%.1f'|format(r.confidence*100) }}%</td>
+        <td>{{ '%.3f'|format(r.prob_ai) }}</td>
+        <td>{{ r.model_name }} <span class="muted">v{{ r.model_version }}</span></td>
+        <td>{{ r.inference_mode }}</td>
+        <td>{{ '%.0f'|format(r.latency_ms) }} ms</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="card empty">No predictions yet. <a href="{{ url_for('index') }}">Analyze your first image →</a></div>
+{% endif %}
+{% endblock %}

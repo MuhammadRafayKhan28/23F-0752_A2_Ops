@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+{% set ai = r.label == 'AI-generated' %}
+<section class="card result {{ 'is-ai' if ai else 'is-real' }}">
+  <p class="eyebrow">Verdict for <code>{{ r.filename }}</code></p>
+  <h1 class="verdict">{{ 'Likely AI-generated' if ai else 'Likely a real photo' }}</h1>
+  <div class="meter"><div class="fill" style="width: {{ '%.1f'|format(r.confidence*100) }}%"></div></div>
+  <p class="conf"><strong>{{ '%.1f'|format(r.confidence*100) }}%</strong> confidence
+     <span class="muted">· P(AI) = {{ '%.3f'|format(r.prob_ai) }} · threshold {{ '%.2f'|format(r.threshold) }}</span></p>
+
+  <dl class="facts">
+    <div><dt>Model</dt><dd>{{ r.model_name }} <span class="muted">v{{ r.model_version }}</span></dd></div>
+    <div><dt>Served by</dt><dd>{{ 'cloud API' if r.inference_mode == 'remote' else 'local model' }}</dd></div>
+    <div><dt>Image</dt><dd>{{ r.image_format }} · {{ r.image_width }}×{{ r.image_height }}</dd></div>
+    <div><dt>Latency</dt><dd>{{ '%.0f'|format(r.latency_ms) }} ms</dd></div>
+    <div><dt>Logged</dt><dd>#{{ r.id }} · {{ r.created_at.strftime('%Y-%m-%d %H:%M:%S') }} UTC</dd></div>
+  </dl>
+  <p class="caveat"><strong>Please read:</strong> {{ caveat }}</p>
+  <div class="actions"><a class="btn" href="{{ url_for('index') }}">Analyze another</a>
+    <a class="btn ghost" href="{{ url_for('history') }}">View history</a></div>
+</section>
+{% endblock %}
