@@ -48,27 +48,32 @@ def main():
     print(f"Targeting DagsHub MLflow: {REMOTE_URI}")
 
     experiments = [
-        ("23L-0548_A2_Ops_VisionGuard", "VisionGuard model exploration and benchmarking"),
-        ("23L-0548_A2_Ops_toy", "Task 3.1 local toy runs"),
+        ("23L-0548_A2_Ops_VisionGuard", ["23L-0548_A2_Ops_VisionGuard", "android_A2_Ops_VisionGuard"]),
+        ("23L-0548_A2_Ops_toy", ["23L-0548_A2_Ops_toy", "android_A2_Ops_toy"]),
     ]
 
-    for exp_name, desc in experiments:
-        local_exp = local_client.get_experiment_by_name(exp_name)
+    for target_name, local_candidates in experiments:
+        local_exp = None
+        for cand in local_candidates:
+            local_exp = local_client.get_experiment_by_name(cand)
+            if local_exp:
+                break
+
         if not local_exp:
-            print(f"[-] Local experiment {exp_name} not found, skipping.")
+            print(f"[-] Local experiment for {target_name} not found, skipping.")
             continue
 
         # Get or create remote experiment
-        remote_exp = remote_client.get_experiment_by_name(exp_name)
+        remote_exp = remote_client.get_experiment_by_name(target_name)
         if not remote_exp:
-            print(f"[+] Creating remote experiment '{exp_name}' on DagsHub...")
-            remote_exp_id = remote_client.create_experiment(exp_name)
+            print(f"[+] Creating remote experiment '{target_name}' on DagsHub...")
+            remote_exp_id = remote_client.create_experiment(target_name)
         else:
             remote_exp_id = remote_exp.experiment_id
-            print(f"[=] Remote experiment '{exp_name}' exists (id={remote_exp_id})")
+            print(f"[=] Remote experiment '{target_name}' exists (id={remote_exp_id})")
 
         local_runs = local_client.search_runs(local_exp.experiment_id)
-        print(f"Found {len(local_runs)} local runs in {exp_name}.")
+        print(f"Found {len(local_runs)} local runs to sync for {target_name}.")
 
         for lrun in reversed(local_runs):
             run_name = lrun.data.tags.get("mlflow.runName", lrun.info.run_id[:8])
