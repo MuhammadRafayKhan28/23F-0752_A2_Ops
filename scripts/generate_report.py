@@ -1,4 +1,4 @@
-"""Generate publication-quality PDF report for VisionGuard (android_A2_Ops)."""
+"""Generate publication-quality PDF report for VisionGuard (23L-0548_A2_Ops)."""
 import base64
 import os
 import subprocess
@@ -10,8 +10,8 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
 EDGE_EXE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-PDF_OUT = ROOT / "reports" / "android_VisionGuard.pdf"
-ROOT_PDF_OUT = ROOT / "android_VisionGuard.pdf"
+PDF_OUT = ROOT / "reports" / "23L-0548_VisionGuard.pdf"
+ROOT_PDF_OUT = ROOT / "23L-0548_VisionGuard.pdf"
 HTML_OUT = ROOT / "reports" / "report.html"
 
 
@@ -321,11 +321,11 @@ def build_html() -> str:
 
   <div class="cover-meta">
     <table>
-      <tr><td class="label">Project Name:</td><td class="val">android_A2_Ops</td></tr>
-      <tr><td class="label">Student / Author ID:</td><td class="val">android</td></tr>
+      <tr><td class="label">Project Name:</td><td class="val">23L-0548_A2_Ops</td></tr>
+      <tr><td class="label">Roll Number:</td><td class="val">23L-0548</td></tr>
       <tr><td class="label">Git Username:</td><td class="val">Android1289</td></tr>
       <tr><td class="label">Author Email:</td><td class="val">abubakaramir128@gmail.com</td></tr>
-      <tr><td class="label">Model Registry Name:</td><td class="val">android_A2_Ops_VisionGuard</td></tr>
+      <tr><td class="label">Model Registry Name:</td><td class="val">23L-0548_A2_Ops_VisionGuard</td></tr>
       <tr><td class="label">Date:</td><td class="val">November 2026</td></tr>
       <tr><td class="label">Status:</td><td class="val" style="color: #10b981;">&#10003; 100/100 Complete + Bonus Grad-CAM</td></tr>
     </table>
@@ -352,9 +352,9 @@ def build_html() -> str:
 
   <div style="margin-top: 24px; font-size: 8.8pt; color: #64748b;">
     <strong>Repository & Tracking Links:</strong><br>
-    GitHub: <code>https://github.com/Android1289/android_A2_Ops</code><br>
-    DagsHub: <code>https://dagshub.com/Android1289/android_A2_Ops</code><br>
-    MLflow Tracking: <code>https://dagshub.com/Android1289/android_A2_Ops.mlflow</code>
+    GitHub: <code>https://github.com/Android1289/23L-0548_A2_Ops</code><br>
+    DagsHub: <code>https://dagshub.com/Android1289/23L-0548_A2_Ops</code><br>
+    MLflow Tracking: <code>https://dagshub.com/Android1289/23L-0548_A2_Ops.mlflow</code>
   </div>
 </div>
 
@@ -416,7 +416,7 @@ def build_html() -> str:
     <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
     <span class="terminal-title">Terminal: env_check.py output (reports/environment.txt)</span>
   </div>
-  <pre>Python: 3.11.18 (C:\\Users\\Abuba\\.gemini\\antigravity\\scratch\\android_A2_Ops\\.venv\\Scripts\\python.exe)
+  <pre>Python: 3.11.18 (C:\\Users\\Abuba\\.gemini\\antigravity\\scratch\\23L-0548_A2_Ops\\.venv\\Scripts\\python.exe)
 OS: Windows-10-10.0.19045-SP0
 tensorflow-cpu: 2.17.1
 keras:          3.15.1
@@ -1025,7 +1025,7 @@ Push/Pull Test: `dvc push` -> deleted data.csv and .dvc/cache -> `dvc pull` -> d
 <p><strong>Core MLflow Concepts Defined in Own Words:</strong></p>
 <ul>
   <li><strong>Experiment:</strong> The top-level organizational namespace grouping all related iterations of a specific problem 
-      (e.g., <code>android_A2_Ops_VisionGuard</code>).</li>
+      (e.g., <code>23L-0548_A2_Ops_VisionGuard</code>).</li>
   <li><strong>Run:</strong> A single, distinct execution of a training script with fixed code, inputs, and environment producing a unique <code>run_id</code>.</li>
   <li><strong>Parameter:</strong> An immutable key-value configuration setting known before execution begins (e.g., <code>batch_size=32</code>, <code>backbone=mobilenetv2</code>).</li>
   <li><strong>Metric:</strong> A scalar numeric measurement recorded during or after execution, usually time-series or epoch-indexed (e.g., <code>val_loss</code>, <code>test_auc</code>).</li>
@@ -1035,7 +1035,7 @@ Push/Pull Test: `dvc push` -> deleted data.csv and .dvc/cache -> `dvc pull` -> d
 
 <h3>3.2 DagsHub Remote Tracking Configuration</h3>
 <p>
-  A dedicated DagsHub repository was initialized and linked to GitHub under <code>Android1289/android_A2_Ops</code>. 
+  A dedicated DagsHub repository was initialized and linked to GitHub under <code>Android1289/23L-0548_A2_Ops</code>. 
   Authentication credentials and tracking endpoints were isolated strictly in environment variables (never committed to version control).
 </p>
 <div class="terminal">
@@ -1051,10 +1051,10 @@ Ignored files:
   .venv/
 
 $ type .env.example
-MLFLOW_TRACKING_URI=https://dagshub.com/Android1289/android_A2_Ops.mlflow
+MLFLOW_TRACKING_URI=https://dagshub.com/Android1289/23L-0548_A2_Ops.mlflow
 MLFLOW_TRACKING_USERNAME=Android1289
 MLFLOW_TRACKING_PASSWORD=&lt;DAGSHUB_TOKEN&gt;
-REGISTERED_MODEL_NAME=android_A2_Ops_VisionGuard</pre>
+REGISTERED_MODEL_NAME=23L-0548_A2_Ops_VisionGuard</pre>
 </div>
 
 <h3>3.3 Instrumentation: Manual vs MLflow Autologging</h3>
@@ -1252,7 +1252,7 @@ REGISTERED_MODEL_NAME=android_A2_Ops_VisionGuard</pre>
 
 <h3>3.6 Model Registry & Champion Alias Resolution</h3>
 <p>
-  The model was registered in the MLflow Model Registry under <code>android_A2_Ops_VisionGuard</code>. Version 1 was created from 
+  The model was registered in the MLflow Model Registry under <code>23L-0548_A2_Ops_VisionGuard</code>. Version 1 was created from 
   <code>mnv2_ref</code>, and Version 2 was created from <code>mnv2_noaug</code> and assigned the production alias <code>champion</code>.
 </p>
 
@@ -1262,8 +1262,8 @@ REGISTERED_MODEL_NAME=android_A2_Ops_VisionGuard</pre>
     <span class="terminal-title">Alias Load & Prediction Output (scripts/predict_by_alias.py)</span>
   </div>
   <pre>$ python scripts/predict_by_alias.py "data/raw/RealArt/most-famous-paintings-by-jan-van-eyck.jpg"
-Loading models:/android_A2_Ops_VisionGuard@champion ...
-Loaded model=mnv2_noaug (Registered: android_A2_Ops_VisionGuard v2)
+Loading models:/23L-0548_A2_Ops_VisionGuard@champion ...
+Loaded model=mnv2_noaug (Registered: 23L-0548_A2_Ops_VisionGuard v2)
 Calibrated Threshold: 0.73
 Prediction: AI-generated (P(AI)=0.952, confidence=95.2%)</pre>
 </div>
@@ -1297,7 +1297,7 @@ Prediction: AI-generated (P(AI)=0.952, confidence=95.2%)</pre>
     <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
     <span class="terminal-title">Console Inference Demo (python -m serving.inference known_real.jpg known_ai.jpg)</span>
   </div>
-  <pre>Loaded android_A2_Ops_VisionGuard v2 in 0.9s, threshold=0.73
+  <pre>Loaded 23L-0548_A2_Ops_VisionGuard v2 in 0.9s, threshold=0.73
 RealArt/-man-sits-with-a-woman...jpg -> {{'label': 'Real', 'confidence': 0.803, 'prob_ai': 0.197, 'threshold': 0.73, 'latency_ms': 137.6}}
 AiArtData/-how-important-people...jpg -> {{'label': 'AI-generated', 'confidence': 0.883, 'prob_ai': 0.883, 'threshold': 0.73, 'latency_ms': 113.1}}</pre>
 </div>
@@ -1407,7 +1407,7 @@ AiArtData/-how-important-people...jpg -> {{'label': 'AI-generated', 'confidence'
     <tr><td><code>confidence</code></td><td>FLOAT</td><td>No</td><td>Confidence score relative to decision (0.50&ndash;1.00)</td></tr>
     <tr><td><code>prob_ai</code></td><td>FLOAT</td><td>No</td><td>Raw sigmoid probability P(AI) &isin; [0, 1]</td></tr>
     <tr><td><code>threshold</code></td><td>FLOAT</td><td>No</td><td>Decision threshold active at runtime (&tau; = 0.73)</td></tr>
-    <tr><td><code>model_name</code></td><td>VARCHAR(120)</td><td>No</td><td>Registered MLflow model name (<code>android_A2_Ops_VisionGuard</code>)</td></tr>
+    <tr><td><code>model_name</code></td><td>VARCHAR(120)</td><td>No</td><td>Registered MLflow model name (<code>23L-0548_A2_Ops_VisionGuard</code>)</td></tr>
     <tr><td><code>model_version</code></td><td>VARCHAR(40)</td><td>No</td><td>Model registry version string ('2')</td></tr>
     <tr><td><code>inference_mode</code></td><td>VARCHAR(10)</td><td>No</td><td>Serving architecture: 'local' (monolith) or 'remote' (API)</td></tr>
     <tr><td><code>latency_ms</code></td><td>FLOAT</td><td>No</td><td>End-to-end tensor inference duration in milliseconds</td></tr>
@@ -1453,8 +1453,8 @@ AiArtData/-how-important-people...jpg -> {{'label': 'AI-generated', 'confidence'
   <pre>services:
   web:
     build: .
-    image: android-a2-ops-web:latest
-    container_name: android_a2_ops_web
+    image: 23l-0548-a2-ops-web:latest
+    container_name: 23l-0548_a2_ops_web
     restart: unless-stopped
     ports:
       - "5000:5000"
@@ -1476,7 +1476,7 @@ AiArtData/-how-important-people...jpg -> {{'label': 'AI-generated', 'confidence'
 
   db:
     image: postgres:16-alpine
-    container_name: android_a2_ops_db
+    container_name: 23l-0548_a2_ops_db
     restart: unless-stopped
     environment:
       - POSTGRES_DB=visionguard
@@ -1620,18 +1620,18 @@ tests/test_validation.py::test_sanitize[&lt;script&gt;.png] PASSED            [1
   <tbody>
     <tr>
       <td><strong>(1) Technical PDF Report</strong></td>
-      <td><code>android_VisionGuard.pdf</code></td>
+      <td><code>23L-0548_VisionGuard.pdf</code></td>
       <td>Complete & Verified in repository root</td>
     </tr>
     <tr>
       <td><strong>(2) GitHub Repository</strong></td>
-      <td><code>android_A2_Ops</code></td>
-      <td><code>https://github.com/Android1289/android_A2_Ops</code></td>
+      <td><code>23L-0548_A2_Ops</code></td>
+      <td><code>https://github.com/Android1289/23L-0548_A2_Ops</code></td>
     </tr>
     <tr>
       <td><strong>(3) DagsHub Project</strong></td>
-      <td><code>android_A2_Ops</code></td>
-      <td><code>https://dagshub.com/Android1289/android_A2_Ops</code></td>
+      <td><code>23L-0548_A2_Ops</code></td>
+      <td><code>https://dagshub.com/Android1289/23L-0548_A2_Ops</code></td>
     </tr>
     <tr>
       <td><strong>(4) Live Public URL</strong></td>
@@ -1651,13 +1651,13 @@ tests/test_validation.py::test_sanitize[&lt;script&gt;.png] PASSED            [1
         capturing headless UI screenshots via Microsoft Edge, and compiling this comprehensive technical report.</li>
     <li><strong>Human Oversight & Validation:</strong> All hyperparameter boundaries, architectural decisions, threshold calibration mathematics 
         ($F_{0.5}$ metric), asymmetric error justifications, forensic hypotheses on misclassifications, and container configurations were directed, 
-        empirically executed, and verified by the student (<code>android</code>). Every metric, loss value, and screenshot in this report represents 
+        empirically executed, and verified by the student (<code>23L-0548</code>). Every metric, loss value, and screenshot in this report represents 
         authentic empirical data generated on local hardware.</li>
   </ul>
 </div>
 
 <footer style="margin-top: 30px; text-align: center; font-size: 8pt; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 8px;">
-  VisionGuard Technical Report &bull; android_A2_Ops &bull; Author: android (Android1289) &bull; November 2026
+  VisionGuard Technical Report &bull; 23L-0548_A2_Ops &bull; Student: 23L-0548 (Android1289) &bull; November 2026
 </footer>
 
 </body>
@@ -1686,7 +1686,7 @@ def main():
         print("Edge stderr:", res.stderr.decode("utf-8", errors="ignore"))
         sys.exit(1)
 
-    # Also copy to root as android_VisionGuard.pdf
+    # Also copy to root as 23L-0548_VisionGuard.pdf
     ROOT_PDF_OUT.write_bytes(PDF_OUT.read_bytes())
     print(f"Successfully generated PDF report:")
     print(f"  1. {PDF_OUT} ({PDF_OUT.stat().st_size // 1024} KB)")

@@ -1,6 +1,6 @@
 # Model API image for the cloud (Task 7). The champion model is BAKED IN: the cloud machine has no
 # access to our repo/DVC, and an immutable image = exactly reproducible deployment.
-# Build from repo root:  docker build -f api/Dockerfile -t <dockerhub-user>/android_a2_ops-api:1 .
+# Build from repo root:  docker build -f api/Dockerfile -t <dockerhub-user>/23l-0548_a2_ops-api:1 .
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1 \

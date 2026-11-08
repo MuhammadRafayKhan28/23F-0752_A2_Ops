@@ -1,5 +1,5 @@
 # Task 6.3 - one command: `docker compose up -d --build`
-name: android_a2_ops
+name: 23l-0548_a2_ops
 
 services:
   db:
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: webapp/Dockerfile
-    image: android_a2_ops-web:latest
+    image: 23l-0548_a2_ops-web:latest
     environment:
       DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-visionguard}
       SECRET_KEY: ${SECRET_KEY:?set in .env}

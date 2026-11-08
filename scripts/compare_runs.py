@@ -10,7 +10,7 @@ import mlflow  # noqa: E402
 from dotenv import load_dotenv  # noqa: E402
 
 load_dotenv()
-EXP = os.getenv("MLFLOW_EXPERIMENT", "android_A2_Ops_VisionGuard")
+EXP = os.getenv("MLFLOW_EXPERIMENT", "23L-0548_A2_Ops_VisionGuard")
 df = mlflow.search_runs(experiment_names=[EXP], filter_string="attributes.status = 'FINISHED'")
 df = df[df["tags.mlflow.parentRunId"].isna()] if "tags.mlflow.parentRunId" in df else df
 cols = {"tags.mlflow.runName": "run", "params.model": "model", "params.lr": "lr",

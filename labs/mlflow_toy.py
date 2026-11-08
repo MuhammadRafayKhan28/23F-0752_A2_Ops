@@ -31,7 +31,7 @@ else:
 x, xt = (x[:20000] / 255.0).astype("float32"), (xt / 255.0).astype("float32")
 y, yt = y[:20000].astype("int32"), yt.astype("int32")
 
-mlflow.set_experiment("android_A2_Ops_toy")
+mlflow.set_experiment("23L-0548_A2_Ops_toy")
 with mlflow.start_run(run_name=f"toy_lr{a.lr}"):
     mlflow.log_params({"lr": a.lr, "epochs": a.epochs, "units": 64, "dataset": "mnist[:20000]"})
     mlflow.set_tag("purpose", "tool-lab")

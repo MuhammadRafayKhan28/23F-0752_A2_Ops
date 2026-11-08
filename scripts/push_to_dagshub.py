@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 REPO_OWNER = os.getenv("DAGSHUB_REPO_OWNER", "Android1289")
-REPO_NAME = os.getenv("DAGSHUB_REPO_NAME", "android_A2_Ops")
+REPO_NAME = os.getenv("DAGSHUB_REPO_NAME", "23L-0548_A2_Ops")
 REMOTE_URI = f"https://dagshub.com/{REPO_OWNER}/{REPO_NAME}.mlflow"
 
 
@@ -48,8 +48,8 @@ def main():
     print(f"Targeting DagsHub MLflow: {REMOTE_URI}")
 
     experiments = [
-        ("android_A2_Ops_VisionGuard", "VisionGuard model exploration and benchmarking"),
-        ("android_A2_Ops_toy", "Task 3.1 local toy runs"),
+        ("23L-0548_A2_Ops_VisionGuard", "VisionGuard model exploration and benchmarking"),
+        ("23L-0548_A2_Ops_toy", "Task 3.1 local toy runs"),
     ]
 
     for exp_name, desc in experiments:
@@ -110,11 +110,11 @@ def main():
             print(f"      [done] Synced run {run_name} -> remote {rrun.info.run_id}")
 
     # Register model on remote if champion exists
-    reg_name = "android_A2_Ops_VisionGuard"
+    reg_name = "23L-0548_A2_Ops_VisionGuard"
     print(f"\n[+] Syncing model registry on DagsHub...")
     try:
         # Search for mnv2_noaug run on remote
-        remote_exp = remote_client.get_experiment_by_name("android_A2_Ops_VisionGuard")
+        remote_exp = remote_client.get_experiment_by_name("23L-0548_A2_Ops_VisionGuard")
         runs = remote_client.search_runs(remote_exp.experiment_id, "tags.mlflow.runName = 'mnv2_noaug'")
         if runs:
             champion_run_id = runs[0].info.run_id

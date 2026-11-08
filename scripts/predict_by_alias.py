@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from serving.inference import load_rgb, resize_like_training  # noqa: E402
 
 load_dotenv()
-NAME = os.getenv("REGISTERED_MODEL_NAME", "android_A2_Ops_VisionGuard")
+NAME = os.getenv("REGISTERED_MODEL_NAME", "23L-0548_A2_Ops_VisionGuard")
 uri = f"models:/{NAME}@champion"
 print(f"Loading {uri} ...")
 model = mlflow.pyfunc.load_model(uri)

@@ -1,6 +1,6 @@
-# VisionGuard — AI vs Real image classifier (android_A2_Ops)
+# VisionGuard — AI vs Real image classifier (23L-0548_A2_Ops)
 
-![CI](https://github.com/<github-username>/android_A2_Ops/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/<github-username>/23L-0548_A2_Ops/actions/workflows/ci.yml/badge.svg)
 
 A Flask web service that tells whether an uploaded image is **AI-generated** or **real**.
 TensorFlow/Keras model · MLflow + DVC on DagsHub · PostgreSQL trail · Docker Compose · cloud model API.
@@ -8,8 +8,8 @@ TensorFlow/Keras model · MLflow + DVC on DagsHub · PostgreSQL trail · Docker 
 | | |
 |---|---|
 | Author | android |
-| GitHub | https://github.com/<github-username>/android_A2_Ops |
-| DagsHub | https://dagshub.com/<dagshub-username>/android_A2_Ops |
+| GitHub | https://github.com/<github-username>/23L-0548_A2_Ops |
+| DagsHub | https://dagshub.com/<dagshub-username>/23L-0548_A2_Ops |
 | Model API | https://<your-api-host> |
 
 ```

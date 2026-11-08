@@ -33,7 +33,7 @@ jobs:
           context: .
           file: webapp/Dockerfile
           push: false
-          tags: android_a2_ops-web:ci
+          tags: 23l-0548_a2_ops-web:ci
           cache-from: type=gha
           cache-to: type=gha,mode=max
       # Pushing would use secrets stored in Settings -> Secrets and variables -> Actions, e.g.

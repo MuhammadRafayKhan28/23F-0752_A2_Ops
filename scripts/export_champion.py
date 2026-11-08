@@ -12,7 +12,7 @@ import mlflow
 from dotenv import load_dotenv
 
 load_dotenv()
-NAME = os.getenv("REGISTERED_MODEL_NAME", "android_A2_Ops_VisionGuard")
+NAME = os.getenv("REGISTERED_MODEL_NAME", "23L-0548_A2_Ops_VisionGuard")
 dst = Path("models/champion")
 dst.mkdir(parents=True, exist_ok=True)
 version = mlflow.MlflowClient().get_model_version_by_alias(NAME, "champion")

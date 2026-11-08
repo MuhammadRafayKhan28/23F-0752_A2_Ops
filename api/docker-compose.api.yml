@@ -1,12 +1,12 @@
 # Optional: run the model API on a cloud VM (Oracle/Azure/GCP VM pathway)
 #   API_KEY=... docker compose -f api/docker-compose.api.yml up -d --build
-name: android_a2_ops-api
+name: 23l-0548_a2_ops-api
 services:
   api:
     build:
       context: ..
       dockerfile: api/Dockerfile
-    image: android_a2_ops-api:latest
+    image: 23l-0548_a2_ops-api:latest
     environment:
       API_KEY: ${API_KEY:?set API_KEY}
       MAX_UPLOAD_MB: "5"

@@ -33,7 +33,7 @@ def create_app(predictor=None):
     @app.get("/")
     @app.get("/health")
     def health():
-        return jsonify({"status": "ok", "service": "android_A2_Ops visionguard-api",
+        return jsonify({"status": "ok", "service": "23L-0548_A2_Ops visionguard-api",
                         "model_name": predictor.model_name, "model_version": predictor.model_version,
                         "threshold": predictor.threshold, "img_size": predictor.img_size,
                         "uptime_s": round(time.time() - started)})

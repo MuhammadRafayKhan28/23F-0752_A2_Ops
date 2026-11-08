@@ -206,7 +206,7 @@ def parse_args(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", choices=["cnn", "mobilenetv2", "efficientnetb0"], default="mobilenetv2")
     ap.add_argument("--run-name", default=None)
-    ap.add_argument("--experiment", default=os.getenv("MLFLOW_EXPERIMENT", "android_A2_Ops_VisionGuard"))
+    ap.add_argument("--experiment", default=os.getenv("MLFLOW_EXPERIMENT", "23L-0548_A2_Ops_VisionGuard"))
     ap.add_argument("--img-size", type=int, default=224)
     ap.add_argument("--batch-size", type=int, default=32)
     ap.add_argument("--epochs", type=int, default=25)

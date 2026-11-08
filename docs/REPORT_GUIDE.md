@@ -3,11 +3,11 @@
 For every sub-task: **▶ what to run**, **📸 what to screenshot**, **✍ draft text** for the report.
 The draft text explains the design choices made in this code — rewrite it in your own words and replace
 every `<…>` with your real numbers after running. Screenshots must show your terminal prompt/username,
-date-time and the project name `android_A2_Ops` (rule 11.1).
+date-time and the project name `23L-0548_A2_Ops` (rule 11.1).
 
 **Assumptions made** (state these in the report):
-- Project name `android_A2_Ops` on GitHub, DagsHub, MLflow experiment, registry
-  model (`android_A2_Ops_VisionGuard`). Docker/Azure require lowercase → `android_a2_ops`.
+- Project name `23L-0548_A2_Ops` on GitHub, DagsHub, MLflow experiment, registry
+  model (`23L-0548_A2_Ops_VisionGuard`). Docker/Azure require lowercase → `23l-0548_a2_ops`.
 - Positive class = **AI-generated (label 1)**, Real = 0. Folder `AiArtData` → 1, `RealArt` → 0.
 - Split 70/15/15 stratified, seed 42, after removing corrupt files and exact duplicates.
 - Image size 224×224, images stretched (no crop/pad). Python 3.11, TensorFlow 2.16/2.17 (Keras 3), CPU.
@@ -15,7 +15,7 @@ date-time and the project name `android_A2_Ops` (rule 11.1).
 - Task 7 pathway C: model API on Azure Container Apps; Flask UI + DB on localhost (as Task 7 asks).
 
 ## Front matter (put at the top of the PDF)
-Name: android · Project: android_A2_Ops · GitHub / DagsHub / API URL ·
+Name: android · Project: 23L-0548_A2_Ops · GitHub / DagsHub / API URL ·
 graded commit: `git rev-parse HEAD` · **AI-assistance disclosure** — say honestly which tools you used and
 for what (e.g. "AI assistant was used to scaffold the code and draft explanations; I ran, debugged and verified
 every step and wrote the final text").
@@ -61,7 +61,7 @@ this signal. *File size*: real photos are larger/heavier-tailed (log scale); com
 be a shortcut — we never feed file size to the model.
 
 ### 1.4 DVC (1.5)
-▶ **Toy part** (separate DagsHub repo `android_A2_Ops-dvc-toy`, connected to an empty GitHub repo):
+▶ **Toy part** (separate DagsHub repo `23L-0548_A2_Ops-dvc-toy`, connected to an empty GitHub repo):
 ```bash
 mkdir dvc-toy && cd dvc-toy
 git init && dvc init && git commit -m "init dvc"
@@ -75,11 +75,11 @@ git checkout HEAD~1 -- data.csv.dvc && dvc checkout && cat data.csv     # back t
 git checkout HEAD -- data.csv.dvc && dvc checkout                      # forward to v2 again
 # remote = DagsHub storage (S3-compatible)
 dvc remote add -d origin s3://dvc
-dvc remote modify origin endpointurl https://dagshub.com/<user>/android_A2_Ops-dvc-toy.s3
+dvc remote modify origin endpointurl https://dagshub.com/<user>/23L-0548_A2_Ops-dvc-toy.s3
 dvc remote modify origin --local access_key_id <token>
 dvc remote modify origin --local secret_access_key <token>
 git add .dvc/config && git commit -m "dvc remote"
-git remote add origin https://dagshub.com/<user>/android_A2_Ops-dvc-toy.git && git push -u origin main
+git remote add origin https://dagshub.com/<user>/23L-0548_A2_Ops-dvc-toy.git && git push -u origin main
 dvc push
 rm data.csv && rm -rf .dvc/cache     # Windows: del data.csv & rmdir /s /q .dvc\cache
 dvc pull && cat data.csv
@@ -190,7 +190,7 @@ run (lr, epochs). **Metric** – a numeric result, possibly logged per step (val
 
 ### 3.2 DagsHub setup (2)
 ▶ Create the repo on DagsHub → **Connect a repository → GitHub** (mirror) → green **Remote** button →
-**Experiments** tab gives `https://dagshub.com/<user>/android_A2_Ops.mlflow`. User settings → Tokens →
+**Experiments** tab gives `https://dagshub.com/<user>/23L-0548_A2_Ops.mlflow`. User settings → Tokens →
 New token. Put URI, username, token in `.env` (`cp .env.example .env`). `python labs/mlflow_toy.py --remote`.
 📸 DagsHub project page, toy run on DagsHub, `git check-ignore -v .env` output (proves it's ignored) and
 `git status` not listing `.env`.
