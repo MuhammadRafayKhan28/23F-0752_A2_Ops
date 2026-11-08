@@ -1,0 +1,8 @@
+# Light-weight deps for CI tests (no TensorFlow: tests use a fake model backend)
+flask>=3.0,<4
+sqlalchemy>=2.0,<2.1
+pillow>=10.3
+numpy>=1.26
+requests>=2.31
+pytest>=8
+ruff>=0.5

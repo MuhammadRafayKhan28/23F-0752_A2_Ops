@@ -1,0 +1,25 @@
+# secrets
+.env
+*.env
+!.env.example
+
+# data & models are versioned with DVC / MLflow, never Git
+/data/raw
+/data/converted
+/models/champion
+*.keras
+*.h5
+
+# generated
+outputs/
+mlruns/
+mlartifacts/
+tuner_dir/
+*.db
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.ipynb_checkpoints/

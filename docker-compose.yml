@@ -1,0 +1,47 @@
+# Task 6.3 - one command: `docker compose up -d --build`
+name: android_a2_ops
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-visionguard}
+    volumes:
+      - pgdata:/var/lib/postgresql/data          # named volume: data survives `down` / rebuilds
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    # NO `ports:` -> 5432 is reachable only on the internal compose network (as host "db")
+
+  web:
+    build:
+      context: .
+      dockerfile: webapp/Dockerfile
+    image: android_a2_ops-web:latest
+    environment:
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-visionguard}
+      SECRET_KEY: ${SECRET_KEY:?set in .env}
+      MODEL_PATH: /models/champion/visionguard.keras
+      MODEL_META_PATH: /models/champion/meta.json
+      THRESHOLD: ${THRESHOLD:-}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-5}
+      INFERENCE_MODE: ${INFERENCE_MODE:-local}
+      MODEL_API_URL: ${MODEL_API_URL:-}
+      MODEL_API_KEY: ${MODEL_API_KEY:-}
+    volumes:
+      - ./models/champion:/models/champion:ro    # model mounted read-only (swap champion w/o rebuild)
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy               # web starts only after Postgres answers pg_isready
+    restart: unless-stopped
+
+volumes:
+  pgdata:

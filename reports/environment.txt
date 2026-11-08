@@ -1,0 +1,18 @@
+Run by: Abuba at 2026-11-08 13:32:28
+Python: 3.11.18  (C:\Users\Abuba\.gemini\antigravity\scratch\android_A2_Ops\.venv\Scripts\python.exe)
+OS: Windows-10-10.0.19045-SP0
+tensorflow      (not installed)
+tensorflow-cpu  2.17.1
+keras           3.15.1
+keras-tuner     1.4.8
+mlflow          2.22.5
+dagshub         0.7.3
+dvc             3.67.1
+numpy           1.26.4
+pandas          2.3.3
+pillow          13.0.0
+scikit-learn    1.9.1
+matplotlib      3.11.2
+flask           3.1.3
+TF built with CUDA: False
+GPUs visible to TF: 0 []
