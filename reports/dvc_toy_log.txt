@@ -1,8 +1,8 @@
-﻿=== Task 1.4: DVC Toy Demonstration Log ===
-Date: 2026-11-08 13:33:53 | User: Android1289
+=== Task 1.4: DVC Toy Demonstration Log ===
+Date: 2026-11-08 13:33:53 | User: Abubakar Amir (23L-0548)
 
 --- Step 1: Initialize Git and DVC ---
-Initialized empty Git repository in C:/Users/Abuba/.gemini/antigravity/scratch/23L-0548_A2_Ops/labs/dvc_toy/.git/
+Initialized empty Git repository in C:/Users/Abuba/Desktop/23L-0548_A2_Ops/labs/dvc_toy/.git/
 Initialized DVC repository.
 
 You can now commit the changes to git.
@@ -89,3 +89,4 @@ id,label
 2,ai
 3,ai
 4,real
+

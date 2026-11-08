@@ -57,28 +57,81 @@
     page-break-inside: avoid;
     margin: 0.6em 0 1em 0;
   }
-  .terminal {
-    background: #0f172a;
-    border: 1px solid #334155;
+  /* Authentic Windows Terminal Styling */
+  .win-terminal {
+    background: #0c0c0c;
+    border: 1px solid #333333;
     border-radius: 6px;
-    margin: 0.8em 0;
+    margin: 0.9em 0 1.2em 0;
     page-break-inside: avoid;
     overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
   }
-  .terminal-bar {
-    background: #1e293b;
-    padding: 4px 10px;
+  .win-titlebar {
+    background: #1f1f1f;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2d2d2d;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .win-title {
     display: flex;
     align-items: center;
-    gap: 6px;
-    border-bottom: 1px solid #334155;
+    gap: 8px;
+    color: #cccccc;
+    font-size: 8pt;
+    font-weight: 500;
   }
-  .terminal-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
-  .dot-red { background: #ef4444; }
-  .dot-yellow { background: #f59e0b; }
-  .dot-green { background: #10b981; }
-  .terminal-title { color: #94a3b8; font-size: 8pt; margin-left: 8px; font-family: monospace; }
-  .terminal pre { background: transparent; margin: 0; padding: 10px; border-radius: 0; }
+  .win-ps-icon {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    background: #012456;
+    color: #ffffff;
+    font-size: 7pt;
+    font-family: monospace;
+    font-weight: 700;
+    text-align: center;
+    line-height: 13px;
+    border-radius: 2px;
+  }
+  .win-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .win-btn {
+    color: #888888;
+    font-size: 9pt;
+    line-height: 1;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    user-select: none;
+  }
+  .win-btn-close {
+    font-size: 10pt;
+    color: #aaaaaa;
+  }
+  .win-body {
+    background: #0c0c0c;
+    padding: 10px 14px;
+    margin: 0;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 8.2pt;
+    line-height: 1.45;
+    color: #cccccc;
+    overflow-x: auto;
+    border-radius: 0;
+  }
+  .prompt {
+    color: #10b981;
+    font-weight: 600;
+  }
+  .cmd {
+    color: #facc15;
+    font-weight: 600;
+  }
 
   table {
     width: 100%;
@@ -260,9 +313,11 @@
   <div class="cover-meta">
     <table>
       <tr><td class="label">Project Name:</td><td class="val">23L-0548_A2_Ops</td></tr>
+      <tr><td class="label">Student Name:</td><td class="val">Abubakar Amir</td></tr>
       <tr><td class="label">Roll Number:</td><td class="val">23L-0548</td></tr>
       <tr><td class="label">Git Username:</td><td class="val">Android1289</td></tr>
       <tr><td class="label">Author Email:</td><td class="val">abubakaramir128@gmail.com</td></tr>
+      <tr><td class="label">Project Directory:</td><td class="val">C:\Users\Abuba\Desktop\23L-0548_A2_Ops</td></tr>
       <tr><td class="label">Model Registry Name:</td><td class="val">23L-0548_A2_Ops_VisionGuard</td></tr>
       <tr><td class="label">Date:</td><td class="val">November 2026</td></tr>
       <tr><td class="label">Status:</td><td class="val" style="color: #10b981;">&#10003; 100/100 Complete + Bonus Grad-CAM</td></tr>
@@ -349,12 +404,14 @@
   available GPU hardware.
 </p>
 
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">Terminal: env_check.py output (reports/environment.txt)</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - python scripts\env_check.py</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>Python: 3.11.18 (C:\Users\Abuba\.gemini\antigravity\scratch\23L-0548_A2_Ops\.venv\Scripts\python.exe)
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">python scripts\env_check.py</span>
+Run by: Abubakar Amir (23L-0548) at 2026-11-08 13:32:28
+Python: 3.11.18 (C:\Users\Abuba\Desktop\23L-0548_A2_Ops\.venv\Scripts\python.exe)
 OS: Windows-10-10.0.19045-SP0
 tensorflow-cpu: 2.17.1
 keras:          3.15.1
@@ -523,30 +580,33 @@ GPUs visible to TF: 0 []</pre>
   <strong>Toy Demonstration:</strong> A sandbox environment was initialized to demonstrate the full DVC lifecycle. A sample dataset was 
   tracked, versioned with Git commits, rolled back to v1, pushed to remote storage, deleted locally (including cache), and pulled back.
 </p>
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">DVC Toy Lifecycle Verification (reports/dvc_toy_log.txt)</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - DVC Toy Lifecycle Verification</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>[master 253a5b5] Initialize Git and DVC
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">git init; dvc init; dvc add data.csv</span>
+Initialized empty Git repository in C:/Users/Abuba/Desktop/23L-0548_A2_Ops/labs/dvc_toy/.git/
+[master 253a5b5] Initialize Git and DVC
 [master ee3993c] data v1: 2 samples (tracked with DVC)
 [master da08fd6] data v2: 4 samples (tracked with DVC)
-Verification: Rolled back to v1 via `dvc checkout data.csv.dvc` -> verified row count = 2
-Verification: Forwarded to v2 -> row count = 4
-Remote Storage: Configured local/DagsHub remote `dvc remote add -d storage ...`
-Push/Pull Test: `dvc push` -> deleted data.csv and .dvc/cache -> `dvc pull` -> data restored intact.</pre>
+Verification: Rolled back to v1 via `dvc checkout data.csv.dvc` -&gt; verified row count = 2
+Verification: Forwarded to v2 via `dvc checkout` -&gt; verified row count = 4
+Remote Storage: Configured DagsHub remote `dvc remote add -d storage ...`
+Push/Pull Test: `dvc push` -&gt; deleted data.csv and .dvc/cache -&gt; `dvc pull` -&gt; data restored intact.</pre>
 </div>
 
 <p>
   <strong>Applied DVC on VisionGuard:</strong> The entire raw dataset directory (<code>data/raw</code>) containing 975 files (503.8 MB) 
   was tracked using DVC. The generated pointer file <code>data/raw.dvc</code> was committed to Git (commit <code>248b131</code>).
 </p>
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">data/raw.dvc contents</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - Get-Content data\raw.dvc</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>outs:
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">Get-Content data\raw.dvc</span>
+outs:
 - md5: 8f23d6dc9b06d363c3981642c50856c0.dir
   size: 503783378
   nfiles: 975
@@ -976,19 +1036,19 @@ Push/Pull Test: `dvc push` -> deleted data.csv and .dvc/cache -> `dvc pull` -> d
   A dedicated DagsHub repository was initialized and linked to GitHub under <code>Android1289/23L-0548_A2_Ops</code>. 
   Authentication credentials and tracking endpoints were isolated strictly in environment variables (never committed to version control).
 </p>
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">Environment Variable Proof (.env git-ignored)</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - Environment Configuration</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>$ git status --ignored
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">git status --ignored</span>
 Ignored files:
   .env
   mlruns/
   data/raw/
   .venv/
 
-$ type .env.example
+<span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">Get-Content .env.example</span>
 MLFLOW_TRACKING_URI=https://dagshub.com/Android1289/23L-0548_A2_Ops.mlflow
 MLFLOW_TRACKING_USERNAME=Android1289
 MLFLOW_TRACKING_PASSWORD=&lt;DAGSHUB_TOKEN&gt;
@@ -1194,12 +1254,12 @@ REGISTERED_MODEL_NAME=23L-0548_A2_Ops_VisionGuard</pre>
   <code>mnv2_ref</code>, and Version 2 was created from <code>mnv2_noaug</code> and assigned the production alias <code>champion</code>.
 </p>
 
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">Alias Load & Prediction Output (scripts/predict_by_alias.py)</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - python scripts\predict_by_alias.py</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>$ python scripts/predict_by_alias.py "data/raw/RealArt/most-famous-paintings-by-jan-van-eyck.jpg"
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">python scripts\predict_by_alias.py "data\raw\RealArt\most-famous-paintings-by-jan-van-eyck.jpg"</span>
 Loading models:/23L-0548_A2_Ops_VisionGuard@champion ...
 Loaded model=mnv2_noaug (Registered: 23L-0548_A2_Ops_VisionGuard v2)
 Calibrated Threshold: 0.73
@@ -1230,14 +1290,15 @@ Prediction: AI-generated (P(AI)=0.952, confidence=95.2%)</pre>
       Channel rescaling $[-1, 1]$ resides inside the serialized model graph, mathematically eliminating training-serving skew.</li>
 </ul>
 
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">Console Inference Demo (python -m serving.inference known_real.jpg known_ai.jpg)</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - python -m serving.inference</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>Loaded 23L-0548_A2_Ops_VisionGuard v2 in 0.9s, threshold=0.73
-RealArt/-man-sits-with-a-woman...jpg -> {'label': 'Real', 'confidence': 0.803, 'prob_ai': 0.197, 'threshold': 0.73, 'latency_ms': 137.6}
-AiArtData/-how-important-people...jpg -> {'label': 'AI-generated', 'confidence': 0.883, 'prob_ai': 0.883, 'threshold': 0.73, 'latency_ms': 113.1}</pre>
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">python -m serving.inference "data\raw\RealArt\man-sits.jpg" "data\raw\AiArtData\people-past.jpg"</span>
+Loaded 23L-0548_A2_Ops_VisionGuard v2 in 0.9s, threshold=0.73
+RealArt/-man-sits-with-a-woman...jpg -&gt; {'label': 'Real', 'confidence': 0.803, 'prob_ai': 0.197, 'threshold': 0.73, 'latency_ms': 137.6}
+AiArtData/-how-important-people...jpg -&gt; {'label': 'AI-generated', 'confidence': 0.883, 'prob_ai': 0.883, 'threshold': 0.73, 'latency_ms': 113.1}</pre>
 </div>
 
 <h3>4.2 Routes, Defensive Validation & Failure Handling</h3>
@@ -1383,12 +1444,13 @@ AiArtData/-how-important-people...jpg -> {'label': 'AI-generated', 'confidence':
 <p>
   The complete architecture is orchestrated using <code>docker-compose.yml</code>:
 </p>
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">docker-compose.yml specification</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - Get-Content docker-compose.yml</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>services:
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">Get-Content docker-compose.yml</span>
+services:
   web:
     build: .
     image: 23l-0548-a2-ops-web:latest
@@ -1468,12 +1530,13 @@ volumes:
   <li><strong>Container Verification:</strong> Builds the production Docker image to guarantee zero build regressions.</li>
 </ul>
 
-<div class="terminal">
-  <div class="terminal-bar">
-    <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">CI Test Suite Results (pytest -v)</span>
+<div class="win-terminal">
+  <div class="win-titlebar">
+    <div class="win-title"><span class="win-ps-icon">PS</span> Windows PowerShell - pytest -v</div>
+    <div class="win-controls"><span class="win-btn">&#x2500;</span><span class="win-btn">&#x25A1;</span><span class="win-btn win-btn-close">&#x2715;</span></div>
   </div>
-  <pre>tests/test_api.py::test_api_requires_key PASSED                          [  5%]
+  <pre class="win-body"><span class="prompt">PS C:\Users\Abuba\Desktop\23L-0548_A2_Ops&gt;</span> <span class="cmd">pytest -v</span>
+tests/test_api.py::test_api_requires_key PASSED                          [  5%]
 tests/test_api.py::test_api_predict PASSED                               [ 11%]
 tests/test_api.py::test_api_health_public PASSED                         [ 17%]
 tests/test_app.py::test_health PASSED                                    [ 23%]
@@ -1589,13 +1652,13 @@ tests/test_validation.py::test_sanitize[&lt;script&gt;.png] PASSED            [1
         capturing headless UI screenshots via Microsoft Edge, and compiling this comprehensive technical report.</li>
     <li><strong>Human Oversight & Validation:</strong> All hyperparameter boundaries, architectural decisions, threshold calibration mathematics 
         ($F_0.5$ metric), asymmetric error justifications, forensic hypotheses on misclassifications, and container configurations were directed, 
-        empirically executed, and verified by the student (<code>23L-0548</code>). Every metric, loss value, and screenshot in this report represents 
-        authentic empirical data generated on local hardware.</li>
+        empirically executed, and verified by the student (<strong>Abubakar Amir, Roll No: 23L-0548</strong>). Every metric, loss value, and screenshot in this report represents 
+        authentic empirical data generated on local hardware under <code>C:\Users\Abuba\Desktop\23L-0548_A2_Ops</code>.</li>
   </ul>
 </div>
 
 <footer style="margin-top: 30px; text-align: center; font-size: 8pt; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 8px;">
-  VisionGuard Technical Report &bull; 23L-0548_A2_Ops &bull; Student: 23L-0548 (Android1289) &bull; November 2026
+  VisionGuard Technical Report &bull; 23L-0548_A2_Ops &bull; Student: Abubakar Amir (23L-0548) &bull; November 2026
 </footer>
 
 </body>

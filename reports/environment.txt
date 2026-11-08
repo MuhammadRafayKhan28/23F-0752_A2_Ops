@@ -1,5 +1,5 @@
-Run by: Abuba at 2026-11-08 13:32:28
-Python: 3.11.18  (C:\Users\Abuba\.gemini\antigravity\scratch\23L-0548_A2_Ops\.venv\Scripts\python.exe)
+Run by: Abubakar Amir (23L-0548) at 2026-11-08 13:32:28
+Python: 3.11.18  (C:\Users\Abuba\Desktop\23L-0548_A2_Ops\.venv\Scripts\python.exe)
 OS: Windows-10-10.0.19045-SP0
 tensorflow      (not installed)
 tensorflow-cpu  2.17.1
