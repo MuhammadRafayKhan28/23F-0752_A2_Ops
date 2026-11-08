@@ -6,9 +6,11 @@
 # data & models are versioned with DVC / MLflow, never Git
 /data/raw
 /data/converted
-/models/champion
 *.keras
 *.h5
+# the exported champion IS committed so cloud builds (Render) can bake it into the API image
+!models/champion/
+!models/champion/*.keras
 
 # generated
 outputs/
