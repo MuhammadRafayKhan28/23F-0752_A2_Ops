@@ -6,9 +6,10 @@
 # data & models are versioned with DVC / MLflow, never Git
 /data/raw
 /data/converted
-/models/champion
 *.keras
 *.h5
+!models/champion/visionguard.keras
+!models/champion/meta.json
 
 # generated
 outputs/

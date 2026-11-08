@@ -1,0 +1,14 @@
+{
+  "model_name": "mnv2_noaug",
+  "model_family": "mobilenetv2",
+  "img_size": 224,
+  "threshold": 0.73,
+  "labels": {
+    "0": "Real",
+    "1": "AI-generated"
+  },
+  "mlflow_run_id": "2876f65744db41cd9e812303d50f54bc",
+  "git_commit": "248b131054690bebeede4b68dda0ca783913a588",
+  "registered_model": "23L-0548_A2_Ops_VisionGuard",
+  "model_version": "2"
+}
